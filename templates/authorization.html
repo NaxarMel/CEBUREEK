@@ -1,0 +1,79 @@
+{% extends "template.html" %}
+
+{% block content %}
+
+    <div class="form-field">
+        <div class="logo-container">
+            <img src="{{ url_for('static', filename='img/LOGO.png') }}" alt="LOGO" class="logo">
+        </div>
+
+        <section>
+            <div class = "container">
+
+                <div class="box">
+
+                    <h2> Реєстрація </h2>
+
+                    <form action="{{ url_for('authorization.authorization') }}" method="POST" class="login-form">
+                        <input type="hidden" name="_method" value="REGISTER">
+                        <div>
+                            <input type="text" required="required" name="username">
+                            <span> Нік-нейм </span>
+                            <i></i>
+                        </div>
+
+                        <div>
+                            <input type="email" required="required" name="email">
+                            <span> Ел.пошта </span>
+                            <i></i>
+                        </div>
+
+                        <div>
+                            <input type="password" required="required" name="password">
+                            <span> Пароль </span>
+                            <i></i>
+                        </div>
+
+                        <input type="submit" value="Надіслати">
+
+                    </form>
+
+                    <div class="box-form">
+
+                        <h2> Увійти </h2>
+
+                        <form action="{{ url_for('authorization.authorization') }}" method="POST">
+                        <input type="hidden" name="_method" value="LOGIN">
+                            <div>
+                                <input type="email" required="required" name="email">
+                                <span> Ел.пошта </span>
+                                <i></i>
+                            </div>
+
+                            <div>
+                                <input type="password" required="required" name="password">
+                                <span> Пароль </span>
+                                <i></i>
+                            </div>
+
+                            <input type="submit" value="Надіслати">
+
+                        </form>
+
+                        <div class = "close"></div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+        </section>
+
+
+        <script type="text/javascript" src="{{url_for('static', filename='js/Login.js')}}" defer></script>
+
+    </div>
+
+
+{% endblock %}
